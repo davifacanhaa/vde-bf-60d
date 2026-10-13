@@ -2,8 +2,8 @@
    Pré Black Friday VDE — captura Turma 60d OAB 48
    Cores amostradas pixel a pixel do "BLACK FRIDAY VICIO.pdf"
    (página CORES). Tipografia do guia: Poppins.
-   A display do guia é a Doctor Glitch, que não é Google Font:
-   o efeito glitch aqui é reproduzido em CSS sobre Poppins.
+   A estética glitch do guia fica só na logo do evento: texto e
+   botões ficam limpos, para não atrapalhar a leitura.
 
    CSS MOBILE FIRST: o bloco base é o celular.
    ========================================================= */
@@ -40,6 +40,7 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
+a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 ::selection { background: var(--magenta); color: #000; }
 
@@ -74,20 +75,15 @@ img { max-width: 100%; display: block; }
   -webkit-mask-image: linear-gradient(to bottom, transparent, #000 55%);
   opacity: 0.7; pointer-events: none;
 }
-/* scanlines de CRT por cima de tudo */
-.scanlines {
-  position: fixed; inset: 0; z-index: 3; pointer-events: none;
-  background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.26) 0 1px, transparent 1px 3px);
-}
 
 .wrap { position: relative; z-index: 1; width: 100%; max-width: var(--maxw); text-align: center; }
 
 /* ---------- Logo do evento ---------- */
 .logo { margin: 0 auto 13px; }
 .logo img {
-  height: clamp(78px, 19svh, 190px); width: auto; max-width: 86%;
+  height: clamp(62px, 12.5svh, 124px); width: auto; max-width: 74%;
   margin: 0 auto;
-  filter: drop-shadow(0 0 28px rgba(164, 0, 255, 0.55));
+  filter: drop-shadow(0 0 24px rgba(164, 0, 255, 0.5));
 }
 
 /* ---------- Selo de oferta ---------- */
@@ -108,22 +104,10 @@ img { max-width: 100%; display: block; }
   100% { box-shadow: 0 0 0 0 rgba(249, 61, 249, 0); }
 }
 
-/* ---------- Headline com aberração cromática (glitch) ---------- */
+/* ---------- Headline ---------- */
 h1 {
-  font-size: clamp(25px, 6.9vw, 40px); line-height: 1.12;
+  font-size: clamp(23px, 5.9vw, 36px); line-height: 1.16;
   font-weight: 700; letter-spacing: -0.02em; text-wrap: balance;
-}
-.glitch {
-  position: relative; display: inline-block;
-  color: #fff;
-  text-shadow: 2px 0 var(--magenta), -2px 0 var(--azul);
-  animation: glitchShift 4.5s steps(1) infinite;
-}
-@keyframes glitchShift {
-  0%, 92%, 100% { text-shadow: 2px 0 var(--magenta), -2px 0 var(--azul); transform: none; }
-  93% { text-shadow: -4px 0 var(--magenta), 4px 0 var(--azul); transform: translateX(2px); }
-  95% { text-shadow: 5px 0 var(--rosa), -5px 0 var(--azul); transform: translateX(-2px); }
-  97% { text-shadow: -2px 0 var(--magenta), 3px 0 var(--azul); transform: none; }
 }
 
 .sub { margin: 10px auto 0; max-width: 420px; font-size: 14.5px; color: var(--texto-2); }
@@ -210,6 +194,15 @@ h1 {
 .form-success .ok svg { width: 23px; height: 23px; stroke: var(--magenta); }
 .form-success h4 { font-size: 19px; font-weight: 700; }
 .form-success p { margin-top: 7px; font-size: 14px; color: var(--texto-2); }
+/* Botão do grupo: verde do WhatsApp, por ser a affordance que a pessoa
+   reconhece na hora. Aparece só depois do envio, sem disputar com o CTA. */
+.btn-whats {
+  margin-top: 14px;
+  background: #25d366;
+  color: #04301a;
+  box-shadow: 0 10px 28px -10px rgba(37, 211, 102, 0.7);
+}
+.btn-whats svg { width: 19px; height: 19px; flex: none; }
 
 /* ---------- Rodapé da dobra ---------- */
 .rodape { margin-top: 13px; }
@@ -221,10 +214,9 @@ h1 {
 @keyframes sobe { to { opacity: 1; transform: none; } }
 
 @media (prefers-reduced-motion: reduce) {
-  .stage::before, .selo .dot, .glitch, .btn::after { animation: none !important; }
+  .stage::before, .btn::after { animation: none !important; }
   .in { animation: none; opacity: 1; transform: none; }
-  .glitch { text-shadow: 2px 0 var(--magenta), -2px 0 var(--azul); }
-}
+  }
 
 /* ---------- >= 768px ---------- */
 @media (min-width: 768px) {
@@ -235,7 +227,7 @@ h1 {
   .field input { padding: 13px 15px; }
   .rodape { margin-top: 22px; }
   .rodape img { display: block; height: 24px; width: auto; margin: 0 auto 8px; opacity: 0.75; }
-  h1 { font-size: 44px; }
+  h1 { font-size: 38px; }
   .sub { font-size: 16.5px; margin-top: 16px; }
   .oferta { padding: 18px 22px; }
   .oferta .valor { font-size: 34px; }
@@ -248,7 +240,7 @@ h1 {
   .stage { padding: 12px 16px 12px; }
   .logo { margin-bottom: 10px; }
   .selo { margin-bottom: 10px; padding: 5px 11px; font-size: 10.5px; }
-  h1 { font-size: clamp(22px, 6.2vw, 34px); }
+  h1 { font-size: clamp(21px, 5.5vw, 30px); }
   .sub { margin-top: 8px; font-size: 13.5px; }
   .oferta { margin-top: 12px; padding: 13px 15px; }
   .form-card { margin-top: 13px; padding: 14px 14px; }
@@ -264,7 +256,7 @@ h1 {
 @media (min-width: 768px) and (max-height: 1000px) {
   .stage { padding: 24px 24px 24px; }
   .logo { margin-bottom: 16px; }
-  h1 { font-size: 34px; }
+  h1 { font-size: 31px; }
   .sub { margin-top: 11px; font-size: 15px; }
   .oferta { margin-top: 14px; padding: 14px 18px; }
   .form-card { margin-top: 16px; padding: 18px 20px; }
@@ -273,4 +265,11 @@ h1 {
   .btn { padding: 14px 22px; }
   .rodape { margin-top: 12px; }
   .rodape img { height: 20px; margin-bottom: 5px; }
+}
+
+/* ---------- Telas com folga: joga o conteúdo um pouco acima do centro
+   óptico, para a página não dar sensação de começar baixo demais.
+   Só entra onde já sobra espaço, então não ameaça a dobra. ---------- */
+@media (min-height: 780px) {
+  .stage { padding-bottom: 64px; }
 }

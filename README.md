@@ -19,8 +19,11 @@ foram amostradas pixel a pixel da página CORES do guia:
 | Índigo (secundária) | `#1D0098` |
 
 Tipografia do guia: **Poppins**. A display do guia é a *Doctor Glitch*, que não
-é Google Font e não está instalada; o efeito glitch da headline é reproduzido em
-CSS (aberração cromática magenta + azul) sobre a Poppins.
+é Google Font e não está instalada.
+
+A estética glitch fica **só na logo do evento**. Texto e botões ficam limpos: o
+efeito de aberração cromática na headline e as scanlines de CRT sobre a página
+foram testados e removidos, porque atrapalhavam a leitura.
 
 ## Onde mudar a copy
 
@@ -41,6 +44,10 @@ telas baixas (`max-height: 800px`) e notebooks (`min-width: 768px` +
 O formulário envia `nome`, `whatsapp`, `email` e `origem: "captura-bf-60d"` via
 POST JSON para `NEXT_PUBLIC_LEAD_ENDPOINT`. **Sem essa variável o formulário
 mostra o sucesso mas não grava o lead.** Veja [`.env.example`](.env.example).
+
+Depois do envio aparece o botão de entrar no grupo do WhatsApp, vindo de
+`OFERTA.grupoWhatsapp` em `app/page.tsx`. **Enquanto esse link estiver vazio o
+botão não aparece** e o texto cai para a versão sem grupo.
 
 ## Desenvolvimento
 

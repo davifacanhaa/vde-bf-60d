@@ -6,13 +6,7 @@ import LeadForm from './lead-form'
    Tudo que muda de campanha está aqui em cima.
    ========================================================= */
 const OFERTA = {
-  // Headline principal. O que estiver dentro de <span className="glitch">
-  // ganha a aberração cromática do guia (magenta + azul).
-  headline: (
-    <>
-      <span className="glitch">Pré-Black Friday</span> Turma de 60 dias para a OAB 48!
-    </>
-  ),
+  headline: 'Pré-Black Friday do Método VDE Turma de 60 dias para a OAB 48!',
   sub: (
     <>
       A oferta especial será enviada somente no dia <b>21/10 às 8h</b> e será
@@ -23,13 +17,14 @@ const OFERTA = {
   de: '',
   valor: '',
   cta: 'Quero a condição especial',
+  // Link do grupo de WhatsApp mostrado DEPOIS do envio.
+  // Enquanto estiver vazio, o botão não aparece.
+  grupoWhatsapp: '',
 }
 
 export default function Page() {
   return (
     <>
-      <div className="scanlines" aria-hidden="true" />
-
       <main className="stage">
         <div className="wrap">
           <div className="logo in">
@@ -59,7 +54,7 @@ export default function Page() {
           )}
 
           <div className="form-card in" id="inscricao" style={{ '--d': '0.36s' } as React.CSSProperties}>
-            <LeadForm cta={OFERTA.cta} />
+            <LeadForm cta={OFERTA.cta} grupo={OFERTA.grupoWhatsapp} />
           </div>
 
           <div className="rodape in" style={{ '--d': '0.44s' } as React.CSSProperties}>
