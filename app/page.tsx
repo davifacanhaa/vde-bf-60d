@@ -24,8 +24,9 @@ const OFERTA = {
   de: '',
   valor: '',
   cta: 'Quero a condição especial',
-  // Link do grupo de WhatsApp mostrado DEPOIS do envio.
-  // Enquanto estiver vazio, o botão não aparece.
+  // >>> PREENCHER ANTES DE PUBLICAR <<<
+  // Link do grupo de WhatsApp. O botão de entrar no grupo aparece sempre
+  // depois do envio, então sem esse link ele não leva a lugar nenhum.
   grupoWhatsapp: '',
 }
 

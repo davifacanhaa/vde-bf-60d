@@ -57,18 +57,12 @@ export default function LeadForm({
         <span className="ok">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
         </span>
-        <h4>Tudo certo!</h4>
-        <p>
-          {grupo
-            ? 'Entre no grupo do WhatsApp para receber a condição no dia 21/10, às 8h, em primeira mão.'
-            : 'Fique de olho no seu WhatsApp e no seu e-mail: a condição de Pré Black Friday vai chegar por lá antes de abrir para o público.'}
-        </p>
-        {grupo && (
-          <a className="btn btn-whats" href={grupo} target="_blank" rel="noopener noreferrer">
-            <IconWhats />
-            Entrar no grupo do WhatsApp
-          </a>
-        )}
+        <h4>Inscrição confirmada!</h4>
+        <p>Agora entre no grupo para receber a condição em primeira mão, no dia 21/10 às 8h.</p>
+        <a className="btn btn-whats" href={grupo} target="_blank" rel="noopener noreferrer">
+          <IconWhats />
+          Entrar no grupo do WhatsApp
+        </a>
       </div>
     )
   }
