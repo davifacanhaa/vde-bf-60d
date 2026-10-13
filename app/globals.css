@@ -1,0 +1,276 @@
+/* =========================================================
+   Pré Black Friday VDE — captura Turma 60d OAB 48
+   Cores amostradas pixel a pixel do "BLACK FRIDAY VICIO.pdf"
+   (página CORES). Tipografia do guia: Poppins.
+   A display do guia é a Doctor Glitch, que não é Google Font:
+   o efeito glitch aqui é reproduzido em CSS sobre Poppins.
+
+   CSS MOBILE FIRST: o bloco base é o celular.
+   ========================================================= */
+:root {
+  /* PRINCIPAIS (guia) */
+  --magenta: #f93df9;
+  --roxo-eletrico: #a400ff;
+  --roxo-profundo: #421870;
+  --preto: #000000;
+  /* SECUNDÁRIAS (guia) */
+  --azul: #649bf8;
+  --rosa: #ce148a;
+  --indigo: #1d0098;
+
+  --texto: #ffffff;
+  --texto-2: rgba(255, 255, 255, 0.72);
+  --texto-3: rgba(255, 255, 255, 0.5);
+
+  --campo-bg: rgba(255, 255, 255, 0.06);
+  --campo-borda: rgba(255, 255, 255, 0.18);
+
+  --radius: 20px;
+  --maxw: 560px;
+  --font: var(--font-poppins), 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font);
+  background: var(--preto);
+  color: var(--texto);
+  line-height: 1.55;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+::selection { background: var(--magenta); color: #000; }
+
+/* ---------- Palco: fundo preto com neon roxo/magenta ---------- */
+.stage {
+  position: relative; isolation: isolate; overflow: hidden;
+  min-height: 100svh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px 16px 22px;
+}
+/* halos de luz (fundos principais do guia: neon roxo sobre preto) */
+.stage::before {
+  content: ''; position: absolute; inset: -20% -10%; z-index: -3;
+  background:
+    radial-gradient(ellipse 60% 42% at 18% 8%, rgba(249, 61, 249, 0.42), transparent 62%),
+    radial-gradient(ellipse 55% 40% at 86% 22%, rgba(164, 0, 255, 0.46), transparent 64%),
+    radial-gradient(ellipse 80% 48% at 50% 108%, rgba(66, 24, 112, 0.85), transparent 68%);
+  animation: haloDrift 26s ease-in-out infinite alternate;
+}
+@keyframes haloDrift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(-3%, 2%, 0) scale(1.1); }
+}
+/* grade em perspectiva (referência "fundos principais") */
+.stage::after {
+  content: ''; position: absolute; inset: auto 0 0 0; height: 46%; z-index: -2;
+  background:
+    repeating-linear-gradient(to right, rgba(249, 61, 249, 0.3) 0 1px, transparent 1px 64px),
+    repeating-linear-gradient(to bottom, rgba(164, 0, 255, 0.32) 0 1px, transparent 1px 44px);
+  transform: perspective(300px) rotateX(70deg); transform-origin: bottom;
+  mask-image: linear-gradient(to bottom, transparent, #000 55%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 55%);
+  opacity: 0.7; pointer-events: none;
+}
+/* scanlines de CRT por cima de tudo */
+.scanlines {
+  position: fixed; inset: 0; z-index: 3; pointer-events: none;
+  background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.26) 0 1px, transparent 1px 3px);
+}
+
+.wrap { position: relative; z-index: 1; width: 100%; max-width: var(--maxw); text-align: center; }
+
+/* ---------- Logo do evento ---------- */
+.logo { margin: 0 auto 13px; }
+.logo img {
+  height: clamp(78px, 19svh, 190px); width: auto; max-width: 86%;
+  margin: 0 auto;
+  filter: drop-shadow(0 0 28px rgba(164, 0, 255, 0.55));
+}
+
+/* ---------- Selo de oferta ---------- */
+.selo {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 13px; margin-bottom: 13px;
+  border: 1px solid rgba(249, 61, 249, 0.55); border-radius: 999px;
+  background: rgba(249, 61, 249, 0.1);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: #fff;
+}
+.selo .dot {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--magenta);
+  box-shadow: 0 0 0 0 rgba(249, 61, 249, 0.7); animation: pulso 1.7s ease-out infinite;
+}
+@keyframes pulso {
+  70%  { box-shadow: 0 0 0 8px rgba(249, 61, 249, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(249, 61, 249, 0); }
+}
+
+/* ---------- Headline com aberração cromática (glitch) ---------- */
+h1 {
+  font-size: clamp(25px, 6.9vw, 40px); line-height: 1.12;
+  font-weight: 700; letter-spacing: -0.02em; text-wrap: balance;
+}
+.glitch {
+  position: relative; display: inline-block;
+  color: #fff;
+  text-shadow: 2px 0 var(--magenta), -2px 0 var(--azul);
+  animation: glitchShift 4.5s steps(1) infinite;
+}
+@keyframes glitchShift {
+  0%, 92%, 100% { text-shadow: 2px 0 var(--magenta), -2px 0 var(--azul); transform: none; }
+  93% { text-shadow: -4px 0 var(--magenta), 4px 0 var(--azul); transform: translateX(2px); }
+  95% { text-shadow: 5px 0 var(--rosa), -5px 0 var(--azul); transform: translateX(-2px); }
+  97% { text-shadow: -2px 0 var(--magenta), 3px 0 var(--azul); transform: none; }
+}
+
+.sub { margin: 10px auto 0; max-width: 420px; font-size: 14.5px; color: var(--texto-2); }
+.sub b { color: #fff; font-weight: 600; }
+
+/* ---------- Condição / preço ---------- */
+.oferta {
+  margin: 16px auto 0; max-width: 420px;
+  border: 1px solid rgba(255, 255, 255, 0.14); border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(164, 0, 255, 0.16), rgba(66, 24, 112, 0.22));
+  padding: 16px 18px;
+  display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap;
+}
+.oferta .de { font-size: 13.5px; color: var(--texto-3); text-decoration: line-through; }
+.oferta .por { font-size: 13px; color: var(--texto-2); }
+.oferta .valor { font-size: 30px; font-weight: 700; line-height: 1; color: #fff; }
+.oferta .valor span { font-size: 16px; font-weight: 600; }
+
+/* ---------- Formulário ---------- */
+.form-card {
+  margin: 16px auto 0; max-width: 420px; text-align: left;
+  border: 1px solid var(--campo-borda); border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  padding: 17px 16px;
+}
+.field { margin-bottom: 9px; }
+.field label {
+  display: block; margin-bottom: 5px;
+  font-size: 11.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--texto-3);
+}
+.field input {
+  width: 100%; padding: 12px 14px;
+  background: var(--campo-bg); border: 1px solid var(--campo-borda); border-radius: 12px;
+  color: #fff; font-family: var(--font); font-size: 16px;  /* 16px evita zoom no iOS */
+  outline: none; transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.field input::placeholder { color: rgba(255, 255, 255, 0.34); }
+.field input:focus {
+  border-color: var(--magenta); background: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 0 0 3px rgba(249, 61, 249, 0.22);
+}
+
+.btn {
+  position: relative; overflow: hidden;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; margin-top: 7px; padding: 15px 22px;
+  border: none; border-radius: 999px; cursor: pointer;
+  font-family: var(--font); font-size: 15.5px; font-weight: 700; line-height: 1.2;
+  letter-spacing: 0.01em; color: #fff;
+  background: linear-gradient(95deg, var(--roxo-eletrico), var(--magenta));
+  box-shadow: 0 10px 30px -10px rgba(249, 61, 249, 0.75);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+.btn::after {
+  content: ''; position: absolute; top: -40%; bottom: -40%; left: -30%; width: 34%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transform: skewX(-20deg) translateX(-260%);
+  animation: brilho 5s ease-in-out 1s infinite; pointer-events: none;
+}
+.btn:hover { transform: scale(1.02); filter: brightness(1.07); }
+.btn:hover::after { animation-duration: 1.4s; animation-delay: 0s; }
+.btn:disabled { opacity: 0.6; cursor: wait; transform: none; }
+.btn:disabled::after { animation: none; }
+@keyframes brilho {
+  0%, 16%   { transform: skewX(-20deg) translateX(-260%); }
+  48%, 100% { transform: skewX(-20deg) translateX(440%); }
+}
+
+.form-note {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  margin-top: 9px; font-size: 11px; color: var(--texto-3);
+}
+.form-note svg { width: 13px; height: 13px; flex: none; }
+.form-error { margin-top: 9px; font-size: 13px; color: #ff7a9c; text-align: center; }
+
+.form-success { text-align: center; padding: 14px 4px; }
+.form-success .ok {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 52px; height: 52px; margin-bottom: 13px; border-radius: 50%;
+  background: rgba(249, 61, 249, 0.16); border: 1px solid rgba(249, 61, 249, 0.5);
+}
+.form-success .ok svg { width: 23px; height: 23px; stroke: var(--magenta); }
+.form-success h4 { font-size: 19px; font-weight: 700; }
+.form-success p { margin-top: 7px; font-size: 14px; color: var(--texto-2); }
+
+/* ---------- Rodapé da dobra ---------- */
+.rodape { margin-top: 13px; }
+.rodape img { display: none; }   /* no celular a dobra fecha sem a logo do rodape */
+.rodape p { font-size: 11px; color: var(--texto-3); }
+
+/* ---------- Entrada ---------- */
+.in { opacity: 0; transform: translateY(16px); animation: sobe 0.8s cubic-bezier(0.2, 0.85, 0.2, 1) var(--d, 0s) forwards; }
+@keyframes sobe { to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .stage::before, .selo .dot, .glitch, .btn::after { animation: none !important; }
+  .in { animation: none; opacity: 1; transform: none; }
+  .glitch { text-shadow: 2px 0 var(--magenta), -2px 0 var(--azul); }
+}
+
+/* ---------- >= 768px ---------- */
+@media (min-width: 768px) {
+  .stage { padding: 48px 24px; }
+  .logo { margin-bottom: 20px; }
+  .selo { margin-bottom: 18px; padding: 7px 14px; font-size: 11.5px; }
+  .field { margin-bottom: 11px; }
+  .field input { padding: 13px 15px; }
+  .rodape { margin-top: 22px; }
+  .rodape img { display: block; height: 24px; width: auto; margin: 0 auto 8px; opacity: 0.75; }
+  h1 { font-size: 44px; }
+  .sub { font-size: 16.5px; margin-top: 16px; }
+  .oferta { padding: 18px 22px; }
+  .oferta .valor { font-size: 34px; }
+  .form-card { padding: 24px 22px; }
+}
+
+/* ---------- Telas baixas: comprime para a dobra continuar fechando ----------
+   (celulares de 740px ou menos de altura útil, e paisagem) */
+@media (max-height: 800px) {
+  .stage { padding: 12px 16px 12px; }
+  .logo { margin-bottom: 10px; }
+  .selo { margin-bottom: 10px; padding: 5px 11px; font-size: 10.5px; }
+  h1 { font-size: clamp(22px, 6.2vw, 34px); }
+  .sub { margin-top: 8px; font-size: 13.5px; }
+  .oferta { margin-top: 12px; padding: 13px 15px; }
+  .form-card { margin-top: 13px; padding: 14px 14px; }
+  .field { margin-bottom: 7px; }
+  .field label { margin-bottom: 4px; font-size: 10.5px; }
+  .field input { padding: 10px 13px; }
+  .btn { padding: 13px 20px; font-size: 15px; }
+  .form-note { margin-top: 7px; }
+  .rodape { margin-top: 8px; }
+}
+
+/* ---------- Desktop/notebook baixo: fecha a dobra sem apertar o mobile ---------- */
+@media (min-width: 768px) and (max-height: 1000px) {
+  .stage { padding: 24px 24px 24px; }
+  .logo { margin-bottom: 16px; }
+  h1 { font-size: 34px; }
+  .sub { margin-top: 11px; font-size: 15px; }
+  .oferta { margin-top: 14px; padding: 14px 18px; }
+  .form-card { margin-top: 16px; padding: 18px 20px; }
+  .field { margin-bottom: 9px; }
+  .field input { padding: 11px 14px; }
+  .btn { padding: 14px 22px; }
+  .rodape { margin-top: 12px; }
+  .rodape img { height: 20px; margin-bottom: 5px; }
+}
