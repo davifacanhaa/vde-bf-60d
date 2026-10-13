@@ -111,9 +111,9 @@ h1 { font-weight: 700; letter-spacing: -0.02em; text-wrap: balance; }
   font-size: clamp(29px, 7.8vw, 44px); line-height: 1.08;
 }
 .h1-leve {
-  display: block; margin-top: 4px;
-  font-size: clamp(18px, 4.6vw, 26px); line-height: 1.22;
-  font-weight: 600; color: var(--texto-2);
+  display: block; margin-top: 3px;
+  font-size: clamp(21px, 5.9vw, 33px); line-height: 1.14;
+  font-weight: 700; color: #fff;   /* continua sendo h1: peso e cor cheios */
 }
 
 .sub { margin: 10px auto 0; max-width: 420px; font-size: 14.5px; color: var(--texto-2); }
@@ -234,7 +234,7 @@ h1 { font-weight: 700; letter-spacing: -0.02em; text-wrap: balance; }
   .rodape { margin-top: 22px; }
   .rodape img { display: block; height: 24px; width: auto; margin: 0 auto 8px; opacity: 0.75; }
   .h1-forte { font-size: 44px; }
-  .h1-leve { font-size: 26px; }
+  .h1-leve { font-size: 33px; }
   .sub { font-size: 16.5px; margin-top: 16px; }
   .oferta { padding: 18px 22px; }
   .oferta .valor { font-size: 34px; }
@@ -248,7 +248,7 @@ h1 { font-weight: 700; letter-spacing: -0.02em; text-wrap: balance; }
   .logo { margin-bottom: 10px; }
   .selo { margin-bottom: 10px; padding: 5px 11px; font-size: 10.5px; }
   .h1-forte { font-size: clamp(26px, 7vw, 38px); }
-  .h1-leve { font-size: clamp(16.5px, 4.2vw, 23px); }
+  .h1-leve { font-size: clamp(19px, 5.3vw, 28px); }
   .sub { margin-top: 8px; font-size: 13.5px; }
   .oferta { margin-top: 12px; padding: 13px 15px; }
   .form-card { margin-top: 13px; padding: 14px 14px; }
@@ -265,7 +265,7 @@ h1 { font-weight: 700; letter-spacing: -0.02em; text-wrap: balance; }
   .stage { padding: 24px 24px 24px; }
   .logo { margin-bottom: 16px; }
   .h1-forte { font-size: 38px; }
-  .h1-leve { font-size: 23px; }
+  .h1-leve { font-size: 28px; }
   .sub { margin-top: 11px; font-size: 15px; }
   .oferta { margin-top: 14px; padding: 14px 18px; }
   .form-card { margin-top: 16px; padding: 18px 20px; }
@@ -289,7 +289,7 @@ h1 { font-weight: 700; letter-spacing: -0.02em; text-wrap: balance; }
   .logo { margin-bottom: 8px; }
   .logo img { height: clamp(52px, 10.5svh, 86px); max-width: 68%; }
   .h1-forte { font-size: clamp(23px, 6.6vw, 28px); }
-  .h1-leve { font-size: clamp(14px, 3.9vw, 17px); margin-top: 3px; }
+  .h1-leve { font-size: clamp(16px, 4.6vw, 20px); margin-top: 2px; }
   .sub { margin-top: 7px; font-size: 12.5px; }
   .form-card { margin-top: 11px; padding: 12px 13px; }
   .field { margin-bottom: 6px; }
