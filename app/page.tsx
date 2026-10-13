@@ -6,7 +6,14 @@ import LeadForm from './lead-form'
    Tudo que muda de campanha está aqui em cima.
    ========================================================= */
 const OFERTA = {
-  headline: 'Pré-Black Friday do Método VDE Turma de 60 dias para a OAB 48!',
+  // Duas linhas com pesos diferentes: a chamada grande em cima,
+  // o produto e a prova embaixo, menor.
+  headline: (
+    <>
+      <span className="h1-forte">Pré-Black Friday</span>
+      <span className="h1-leve">do Método VDE 60 dias para a OAB 48!</span>
+    </>
+  ),
   sub: (
     <>
       A oferta especial será enviada somente no dia <b>21/10 às 8h</b> e será

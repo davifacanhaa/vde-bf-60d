@@ -34,10 +34,18 @@ deixe vazio para esconder o bloco) e texto do botão. O trecho dentro de
 
 ## Dobra única
 
-O layout fecha dentro da altura da tela em todos os tamanhos testados
-(360x640 até 1920x1080). A logo escala por `svh` e há regras de compressão para
-telas baixas (`max-height: 800px`) e notebooks (`min-width: 768px` +
-`max-height: 1000px`). Ao mexer na copy, confira se a dobra continua fechando.
+O layout fecha dentro da altura da tela em todos os tamanhos de retrato
+testados, de 320x568 a 1920x1080. A logo escala por `svh` e há regras de
+compressão para telas muito pequenas (`max-height: 620px`), telas baixas
+(`max-height: 800px`) e notebooks (`min-width: 768px` + `max-height: 1000px`).
+
+Em celular deitado (ex.: 844x390) o conteúdo não cabe e a página rola, o que é
+esperado. A centralização usa `margin: auto` no `.wrap` em vez de
+`align-items: center`, justamente para que o topo continue alcançável quando
+isso acontece.
+
+**Ao mexer na copy, confira se a dobra continua fechando.** A headline é a parte
+mais sensível: `.h1-forte` precisa caber em uma linha.
 
 ## Captura de leads
 
