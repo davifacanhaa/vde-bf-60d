@@ -10,13 +10,13 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'Pré Black Friday | Método VDE — Turma de 60 dias para a OAB 48',
+  title: 'Pré-Black Friday | VDE 1ª fase — Turma de 60 dias para a OAB 48',
   description:
-    'Condição especial de Pré Black Friday na Turma de 60 dias do Método VDE para a 1ª fase da OAB 48. Vagas limitadas.',
+    'Condição especial de Pré-Black Friday na Turma de 60 dias do VDE 1ª fase para a OAB 48. A oferta é enviada no dia 21/10 às 8h.',
   openGraph: {
-    title: 'Pré Black Friday | Método VDE — Turma de 60 dias para a OAB 48',
+    title: 'Pré-Black Friday | VDE 1ª fase — Turma de 60 dias para a OAB 48',
     description:
-      'Condição especial de Pré Black Friday na Turma de 60 dias do Método VDE para a 1ª fase da OAB 48.',
+      'Condição especial de Pré-Black Friday na Turma de 60 dias do VDE 1ª fase para a OAB 48.',
     locale: 'pt_BR',
     type: 'website',
   },

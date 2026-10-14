@@ -11,7 +11,7 @@ const OFERTA = {
   headline: (
     <>
       <span className="h1-forte">Pré-Black Friday</span>
-      <span className="h1-leve">do Método VDE 60 dias para a OAB 48!</span>
+      <span className="h1-leve">do VDE 1ª fase Turma de 60 dias para a OAB 48!</span>
     </>
   ),
   sub: (
