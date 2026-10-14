@@ -24,10 +24,6 @@ const OFERTA = {
   de: '',
   valor: '',
   cta: 'Quero a condição especial',
-  // >>> PREENCHER ANTES DE PUBLICAR <<<
-  // Link do grupo de WhatsApp. O botão de entrar no grupo aparece sempre
-  // depois do envio, então sem esse link ele não leva a lugar nenhum.
-  grupoWhatsapp: '',
 }
 
 export default function Page() {
@@ -62,7 +58,7 @@ export default function Page() {
           )}
 
           <div className="form-card in" id="inscricao" style={{ '--d': '0.36s' } as React.CSSProperties}>
-            <LeadForm cta={OFERTA.cta} grupo={OFERTA.grupoWhatsapp} />
+            <LeadForm cta={OFERTA.cta} />
           </div>
 
           <div className="rodape in" style={{ '--d': '0.44s' } as React.CSSProperties}>

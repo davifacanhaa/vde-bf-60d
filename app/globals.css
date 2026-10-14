@@ -200,15 +200,6 @@ h1 { font-weight: 700; letter-spacing: -0.02em; text-wrap: balance; }
 .form-success .ok svg { width: 23px; height: 23px; stroke: var(--magenta); }
 .form-success h4 { font-size: 19px; font-weight: 700; }
 .form-success p { margin-top: 7px; font-size: 14px; color: var(--texto-2); }
-/* Botão do grupo: verde do WhatsApp, por ser a affordance que a pessoa
-   reconhece na hora. Aparece só depois do envio, sem disputar com o CTA. */
-.btn-whats {
-  margin-top: 14px;
-  background: #25d366;
-  color: #04301a;
-  box-shadow: 0 10px 28px -10px rgba(37, 211, 102, 0.7);
-}
-.btn-whats svg { width: 19px; height: 19px; flex: none; }
 
 /* ---------- Rodapé da dobra ---------- */
 .rodape { margin-top: 13px; }
